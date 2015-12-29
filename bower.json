@@ -1,0 +1,20 @@
+{
+  "name": "angular-express-seed",
+  "version": "0.0.0",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.8",
+    "angular-ui-router": "~0.2.15",
+    "lodash": "~3.10.1",
+    "bootstrap": "~3.3.6",
+    "angular-bootstrap": "~0.14.3",
+    "jquery": "~2.1.4"
+  },
+  "private": true
+}
