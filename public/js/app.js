@@ -3,24 +3,22 @@
 // Declare app level module which depends on filters, and services
 
 angular.module('myApp', [
-  'myApp.controllers',
-  'myApp.filters',
-  'myApp.services',
-  'myApp.directives'
+  'ui.router',
+  'ui.bootstrap'
 ]).
-config(function ($routeProvider, $locationProvider) {
-  $routeProvider.
-    when('/view1', {
-      templateUrl: 'partials/partial1',
-      controller: 'MyCtrl1'
-    }).
-    when('/view2', {
-      templateUrl: 'partials/partial2',
-      controller: 'MyCtrl2'
-    }).
-    otherwise({
-      redirectTo: '/view1'
+config(['$provide', '$stateProvider', '$urlRouterProvider', '$httpProvider', '$locationProvider', function ($provide, $stateProvider, $urlRouterProvider, $httpProvider, $locationProvider) {
+
+    $urlRouterProvider.otherwise( function($injector, $location) {
+        var $state = $injector.get("$state");
+        $state.go("home");
     });
 
-  $locationProvider.html5Mode(true);
-});
+    $stateProvider
+    .state('home', {
+        url: "/home",
+        controller: 'HomeCtrl',
+        templateUrl: "partials/home"
+    });
+
+    $locationProvider.html5Mode(true);
+}]);
